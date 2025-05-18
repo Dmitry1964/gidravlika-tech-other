@@ -118,3 +118,17 @@
 
 // не нужно добавлять свои миксины для ресета списков, обнуления кнопок и прочие
 // этим вы усложняете работу команды, проверку вашего кода и будущую поддержку проекта
+
+
+// Миксин для адаптивного размера шрифта
+// $min-font-size: минимальный размер шрифта (например, 16px)
+// $max-font-size: максимальный размер шрифта (например, 24px)
+// $min-viewport-width: минимальная ширина вьюпорта (например, 320px)
+// $max-viewport-width: максимальная ширина вьюпорта (например, 1200px)
+@mixin fluid-font($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
+  $slope: ($max-font-size - $min-font-size) / ($max-viewport-width - $min-viewport-width);
+  $y-intercept: $min-font-size - $slope * $min-viewport-width;
+  $fluid-value: calc(#{$y-intercept} + #{$slope * 100}vw);
+
+  font-size: clamp(#{$min-font-size}, #{$fluid-value}, #{$max-font-size});
+}
