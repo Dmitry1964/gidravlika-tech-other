@@ -3,10 +3,12 @@ import Box from "@mui/joy/Box";
 import IconButton from "@mui/joy/IconButton";
 import Drawer from "@mui/joy/Drawer";
 import List from "@mui/joy/List";
-import ListItemButton from "@mui/joy/ListItemButton";
 import Typography from "@mui/joy/Typography";
 import ModalClose from "@mui/joy/ModalClose";
 import Menu from "@mui/icons-material/Menu";
+import "./mobile-menu.module.scss";
+import { Navbar } from "src/features/navbar";
+
 
 export default function DrawerMobileNavigation() {
   const [open, setOpen] = React.useState(false);
@@ -40,45 +42,21 @@ export default function DrawerMobileNavigation() {
           <Typography
             component="label"
             htmlFor="close-icon"
-            sx={{ fontSize: "sm", fontWeight: "lg", cursor: "pointer" }}
+            sx={{
+              fontSize: "14px",
+              fontWeight: "lg",
+              cursor: "pointer",
+              padding: "2px 5px",
+              borderRadius: "5px",
+              backgroundColor: '#031232',
+              color: '#ffffff',
+              textTransform: 'lowercase'
+            }}
           >
-            Close
+            Закрыть
           </Typography>
           <ModalClose id="close-icon" sx={{ position: "initial" }} />
         </Box>
-        {/* <Input
-          size="sm"
-          placeholder="Search"
-          variant="plain"
-          endDecorator={<Search />}
-          slotProps={{
-            input: {
-              'aria-label': 'Search anything',
-            },
-          }}
-          sx={{
-            m: 3,
-            borderRadius: 0,
-            borderBottom: '2px solid',
-            borderColor: 'neutral.outlinedBorder',
-            '&:hover': {
-              borderColor: 'neutral.outlinedHoverBorder',
-            },
-            '&::before': {
-              border: '1px solid var(--Input-focusedHighlight)',
-              transform: 'scaleX(0)',
-              left: 0,
-              right: 0,
-              bottom: '-2px',
-              top: 'unset',
-              transition: 'transform .15s cubic-bezier(0.1,0.9,0.2,1)',
-              borderRadius: 0,
-            },
-            '&:focus-within::before': {
-              transform: 'scaleX(1)',
-            },
-          }}
-        /> */}
         <List
           size="lg"
           component="nav"
@@ -88,10 +66,11 @@ export default function DrawerMobileNavigation() {
             "& > div": { justifyContent: "left", background: "green" },
           }}
         >
-          <ListItemButton sx={{ fontWeight: "lg" }}>Home</ListItemButton>
-          <ListItemButton style={{ color: "red" }}>About</ListItemButton>
-          <ListItemButton>Studio</ListItemButton>
-          <ListItemButton>Contact</ListItemButton>
+          {/* <ListItemButton sx={{ fontWeight: "lg" }}>Главная</ListItemButton>
+          <ListItemButton>Ремонт оборудования</ListItemButton>
+          <ListItemButton>Ремонт спецтехники</ListItemButton>
+          <ListItemButton>Произвщд</ListItemButton> */}
+          <Navbar />
         </List>
       </Drawer>
     </React.Fragment>
