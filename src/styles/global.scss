@@ -1,7 +1,7 @@
-@use '../styles/fonts.scss';
-@use '../styles/variables.scss';
-@use '../styles/container.scss';
-@use '../styles/mixins.scss';
+@use "../styles/fonts.scss";
+@use "../styles/variables.scss";
+@use "../styles/container.scss";
+@use "../styles/mixins.scss";
 
 *,
 *::before,
@@ -36,7 +36,6 @@ body {
   height: 100%;
   background-color: variables.$color-default-white;
   font-family: variables.$ff-default;
-
 }
 
 a {
@@ -116,13 +115,15 @@ input[type="number"] {
 // ios button \ inputs reset
 select,
 textarea,
-input:matches([type="email"],
-  [type="number"],
-  [type="password"],
-  [type="search"],
-  [type="tel"],
-  [type="text"],
-  [type="url"]) {
+input:matches(
+    [type="email"],
+    [type="number"],
+    [type="password"],
+    [type="search"],
+    [type="tel"],
+    [type="text"],
+    [type="url"]
+  ) {
   appearance: none;
 }
 

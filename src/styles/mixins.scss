@@ -1,4 +1,5 @@
 @use "variables";
+@use "sass:math";
 
 @mixin retina {
   @media (min-resolution: variables.$retina-dpi), (min-resolution: variables.$retina-dppx) {
@@ -120,15 +121,31 @@
 // этим вы усложняете работу команды, проверку вашего кода и будущую поддержку проекта
 
 
-// Миксин для адаптивного размера шрифта
-// $min-font-size: минимальный размер шрифта (например, 16px)
-// $max-font-size: максимальный размер шрифта (например, 24px)
+
+// Миксин для адаптивного размера шрифта при изменении вьюпорта от max к min (Desktop first)
+// $min-font-size: минимальный размер шрифта (например, 16px) при $min-viewport-width
+// $max-font-size: максимальный размер шрифта (например, 24px) при $max-viewport-width
 // $min-viewport-width: минимальная ширина вьюпорта (например, 320px)
 // $max-viewport-width: максимальная ширина вьюпорта (например, 1200px)
-@mixin fluid-font($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
-  $slope: ($max-font-size - $min-font-size) / ($max-viewport-width - $min-viewport-width);
+@mixin fluid-font-reverse($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
+  // Используем те же точки, но clamp будет работать наоборот
+  $slope: math.div($max-font-size - $min-font-size, $max-viewport-width - $min-viewport-width);
   $y-intercept: $min-font-size - $slope * $min-viewport-width;
   $fluid-value: calc(#{$y-intercept} + #{$slope * 100}vw);
 
+  // Инвертируем min/max в clamp для режима desktop first - ОТКАТЫВАЕМ
   font-size: clamp(#{$min-font-size}, #{$fluid-value}, #{$max-font-size});
+}
+
+// Миксин для адаптивного значения margin
+// $min-margin: минимальное значение margin
+// $max-margin: максимальное значение margin
+// $min-viewport-width: минимальная ширина вьюпорта
+// $max-viewport-width: максимальная ширина вьюпорта
+@mixin fluid-margin-bottom($min-margin, $max-margin, $min-viewport-width, $max-viewport-width) {
+  $slope: math.div($max-margin - $min-margin, $max-viewport-width - $min-viewport-width);
+  $y-intercept: $min-margin - $slope * $min-viewport-width;
+  $fluid-value: calc(#{$y-intercept} + #{$slope * 100}vw);
+
+  margin-bottom: clamp(#{$min-margin}, #{$fluid-value}, #{$max-margin});
 }
