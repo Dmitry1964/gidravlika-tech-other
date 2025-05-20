@@ -1,1 +1,4 @@
-export { Loading } from './ui/loading';
+import Loading from "./ui/loading";
+
+
+export {Loading};

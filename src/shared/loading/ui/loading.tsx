@@ -1,10 +1,13 @@
-import { FC } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 import cls from './loading.module.scss';
 
-export const Loading: FC = () => {
+const Loading = () => {
   return (
-    <div className={cls.loading}>
-      <div className={cls.spinner}></div>
-    </div>
+    <Box className={cls.loadingContainer}>
+      <CircularProgress />
+    </Box>
   );
 };
+
+export default Loading;
