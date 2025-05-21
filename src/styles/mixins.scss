@@ -149,3 +149,14 @@
 
   margin-bottom: clamp(#{$min-margin}, #{$fluid-value}, #{$max-margin});
 }
+
+@mixin fluid-size-container($min-size, $max-size, $min-viewport-width, $max-viewport-width) {
+  $slope: math.div($max-size - $min-size, $max-viewport-width - $min-viewport-width);
+  $y-intercept: $min-size - $slope * $min-viewport-width;
+  $fluid-value: calc(#{$y-intercept} + #{$slope * 100}vw);
+
+  padding-left: clamp(#{$min-size}, #{$fluid-value}, #{$max-size});
+  padding-right: clamp(#{$min-size}, #{$fluid-value}, #{$max-size});
+  padding-top: 0;
+  padding-bottom: 0;
+}
