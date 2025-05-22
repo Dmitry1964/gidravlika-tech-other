@@ -1,4 +1,5 @@
 import { Banner } from "src/widgets/banner";
+import { FeaturesList } from "src/widgets/features-list";
 import { Intro } from "src/widgets/intro";
 
 const MainPage = (): React.ReactNode => {
@@ -8,6 +9,7 @@ const MainPage = (): React.ReactNode => {
       <Intro>
         <h2>УСЛУГИ НАШЕЙ КОМПАНИИ:</h2>
       </Intro>
+      <FeaturesList />
     </main>
   )
 }

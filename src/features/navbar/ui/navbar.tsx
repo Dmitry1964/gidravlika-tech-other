@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import cls from "./navbar.module.scss";
+import { AppRoutes } from "src/app/routes/routes";
 
 const Navbar = () => {
   return (
@@ -19,7 +20,7 @@ const Navbar = () => {
           </li>
           <li className={cls.navbar__item}>
             <NavLink
-              to="/about"
+              to={AppRoutes.Repair}
               className={({ isActive }) =>
                 [cls.navbar__link, isActive ? cls.active : ""].join(" ")
               }
