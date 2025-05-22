@@ -13,10 +13,6 @@ import { Navbar } from "src/features/navbar";
 export default function DrawerMobileNavigation() {
   const [open, setOpen] = React.useState(false);
 
-  const buttonStyle = {
-    width: "40px",
-    height: "40px",
-  };
 
   return (
     <React.Fragment>
@@ -24,7 +20,12 @@ export default function DrawerMobileNavigation() {
         variant="outlined"
         color="neutral"
         onClick={() => setOpen(true)}
-        style={buttonStyle}
+        sx={{
+          width: "30px",
+          height: "30px",
+          color: "#0788aa",
+          borderColor: "#0788aa",
+        }}
       >
         <Menu />
       </IconButton>

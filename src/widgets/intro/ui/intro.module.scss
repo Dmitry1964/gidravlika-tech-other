@@ -30,12 +30,6 @@
       @include mixins.fluid-font-reverse(30px, 40px, 768px, 1280px)
     }
 
-    // @include mixins.vp-1023 {
-    //   font-size: 3.5rem;
-    //   line-height: auto;
-    //   margin: 0 0 75px;
-    // }
-
     @include mixins.vp-767 {
       @include mixins.fluid-font-reverse(20px, 30px, 320px, 768px);
       line-height: 2.8rem;

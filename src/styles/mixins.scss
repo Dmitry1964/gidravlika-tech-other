@@ -160,3 +160,12 @@
   padding-top: 0;
   padding-bottom: 0;
 }
+
+@mixin fluid-size-height($min-size, $max-size, $min-viewport-width, $max-viewport-width) {
+  $slope: math.div($max-size - $min-size, $max-viewport-width - $min-viewport-width);
+  $y-intercept: $min-size - $slope * $min-viewport-width;
+  $fluid-value: calc(#{$y-intercept} + #{$slope * 100}vw);
+
+  height: clamp(#{$min-size}, #{$fluid-value}, #{$max-size});
+}
+

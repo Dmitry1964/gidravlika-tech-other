@@ -1,7 +1,7 @@
 import cls from './about.module.scss';
 import { AboutImg } from 'src/entities/about-img';
-import { useScreenWidth } from 'src/lib/hooks';
-import { TABLET_VIEWPORT } from 'src/lib/constans';
+import { useScreenWidth } from 'src/shared/lib/hooks';
+import { TABLET_VIEWPORT } from 'src/shared/lib/constans';
 
 const About = () => {
   const screenWidth = useScreenWidth();
