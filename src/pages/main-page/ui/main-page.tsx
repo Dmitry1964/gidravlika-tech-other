@@ -1,3 +1,4 @@
+import { About } from "src/widgets/about";
 import { Banner } from "src/widgets/banner";
 import { FeaturesList } from "src/widgets/features-list";
 import { Intro } from "src/widgets/intro";
@@ -10,6 +11,7 @@ const MainPage = (): React.ReactNode => {
         <h2>УСЛУГИ НАШЕЙ КОМПАНИИ:</h2>
       </Intro>
       <FeaturesList />
+      <About />
     </main>
   )
 }

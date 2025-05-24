@@ -2,12 +2,15 @@
   "name": "temp-app",
   "private": true,
   "version": "0.0.0",
+  "homepage": "http://Dmitry1964.github.io/gidravlika-tech-other",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -31,6 +34,7 @@
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "gh-pages": "^6.3.0",
     "globals": "^16.0.0",
     "sass": "^1.89.0",
     "stylelint": "^16.19.1",

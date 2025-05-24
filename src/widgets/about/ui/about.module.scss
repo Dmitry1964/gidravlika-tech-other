@@ -8,13 +8,13 @@
   background-color: variables.$color-midnight-express;
 
   @include mixins.vp-1279 {
-    padding-top: 90px;
-    padding-bottom: 40px;
+    @include mixins.fluid-padding-top(90px, 115px, 1023px, 1280px);
+    @include mixins.fluid-padding-bottom(40px, 100px, 1023px, 1280px);
   }
 
   @include mixins.vp-1023 {
-    padding-top: 40px;
-    padding-bottom: 50px;
+    @include mixins.fluid-padding-top(15px, 90px, 767px, 1024px);
+    @include mixins.fluid-padding-bottom(15px, 40px, 767px, 1024px);
   }
 
   @include mixins.vp-767 {
@@ -80,35 +80,40 @@
   }
 
   & h2 {
-    font-size: 6rem;
-    line-height: 7rem;
+    font-size: 5.2rem;
+    line-height: auto;
     color: variables.$color-default-white;
     margin: 0 0 50px;
 
     @include mixins.vp-1439 {
-      font-size: 4.8rem;
-      line-height: 5.6rem;
+      font-size: 4.5rem;
+      line-height: auto;
     }
 
     @include mixins.vp-1279 {
-      font-size: 4rem;
-      margin: 0 0 40px;;
+      font-size: 3.5rem;
+      margin: 0 0 40px;
     }
 
     @include mixins.vp-1023 {
       margin-bottom: 20px;
     }
+
+    @include mixins.vp-374 {
+      font-size: 3.2rem;
+      line-height: auto;
+    }
   }
 
   & p {
-    font-family: variables.$ff-second;
     font-size: 1.8rem;
-    line-height: 2.7rem;
+    line-height: auto;
     color: variables.$color-default-white;
     margin: 0;
 
     @include mixins.vp-1279 {
-      font-family: variables.$ff-default;
+      font-size: 1.6rem;
+      line-height: auto;
     }
 
     @include mixins.vp-1023 {
@@ -128,7 +133,7 @@
   }
 
   & img {
-    filter:grayscale(80%) brightness(50%);
+    filter: grayscale(80%) brightness(50%);
     width: 400px;
 
     @include mixins.vp-1023 {
@@ -147,7 +152,10 @@
   }
 
   @include mixins.vp-767 {
+    display: flex;
+    flex-wrap: wrap;
     margin-left: 0;
+    justify-content: space-between;
   }
 }
 
@@ -181,6 +189,7 @@
     font-weight: 400;
     margin-bottom: 15px;
     align-items: center;
+    margin-right: 20px;
   }
 
 
@@ -200,8 +209,8 @@
     }
 
     @include mixins.vp-767 {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
     }
   }
 
